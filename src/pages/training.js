@@ -4,15 +4,27 @@ import Footer from '@/components/Footer'
 import { useLang } from '../langContext'
 
 const MAIN_TABS_BASE = [
-  { id: 'financial-report-method', labelMn: 'Санхүүгийн тайлан гаргах арга зүйн сургалт', labelEn: 'Financial statement preparation training' },
-  { id: 'cpa', labelMn: 'Мэргэшсэн нягтлан бодогч эрх олгох шалгалтанд бэлтгэх сургалт / CPA /', labelEn: 'CPA exam preparation training' },
+  {
+    id: 'financial-report-method',
+    labelMn: 'Санхүүгийн тайлан гаргах арга зүйн сургалт',
+    labelEn: 'Financial statement preparation training',
+  },
+  {
+    id: 'cpa',
+    labelMn: 'Мэргэшсэн нягтлан бодогч эрх олгох шалгалтанд бэлтгэх сургалт / CPA /',
+    labelEn: 'CPA exam preparation training',
+  },
 ]
 
 const CPA_SUB_TABS = [
-  { id: 'sanhuu-taiлагnal', label: 'Санхүүгийн тайлагнал' },
-  { id: 'huuli', label: 'Хууль' },
-  { id: 'ortog', label: 'Өртөг ба гүйцэтгэлийн удирдлага' },
-  { id: 'sanhuu-menejment', label: 'Санхүүгийн менежмент' },
+  { id: 'sanhuu-taiлагnal', labelMn: 'Санхүүгийн тайлагнал', labelEn: 'Financial reporting' },
+  { id: 'huuli', labelMn: 'Хууль', labelEn: 'Law & tax law' },
+  {
+    id: 'ortog',
+    labelMn: 'Өртөг ба гүйцэтгэлийн удирдлага',
+    labelEn: 'Cost and performance management',
+  },
+  { id: 'sanhuu-menejment', labelMn: 'Санхүүгийн менежмент', labelEn: 'Financial management' },
 ]
 
 const FINANCIAL_REPORT_SYLLABUS = [
@@ -65,56 +77,123 @@ export default function TrainingPage() {
     if (activeTab === 'financial-report-method') {
       return (
         <div className="space-y-6">
-                  <h2 className="text-xl font-semibold text-white">Санхүүгийн тайлан гаргах арга зүйн сургалт</h2>
-                  <p className="leading-relaxed">
-                    Анхан шатны баримтад үндэслэн мэдээлэл боловсруулж санхүү, татвар, нийгмийн даатгалын тайлан бэлтгэж сурах, санхүүгийн тайлан уншиж оновчтой шийдвэр гаргах чадвартай болоход оршино. Ангиас сонгон суралцаж гар аргаар, эксел файл болон санхүүгийн програм дээр тайлан гаргаж сурна.
-                  </p>
+          <h2 className="text-xl font-semibold text-white">
+            {lang === 'en'
+              ? 'Financial statement preparation training'
+              : 'Санхүүгийн тайлан гаргах арга зүйн сургалт'}
+          </h2>
+          <p className="leading-relaxed">
+            {lang === 'en'
+              ? 'This course teaches you how to prepare financial, tax, and social insurance reports based on source documents, and how to read financial statements in order to make informed decisions. You will practice preparing reports manually, in Excel, and in accounting software.'
+              : 'Анхан шатны баримтад үндэслэн мэдээлэл боловсруулж санхүү, татвар, нийгмийн даатгалын тайлан бэлтгэж сурах, санхүүгийн тайлан уншиж оновчтой шийдвэр гаргах чадвартай болоход оршино. Ангиас сонгон суралцаж гар аргаар, эксел файл болон санхүүгийн програм дээр тайлан гаргаж сурна.'}
+          </p>
                   <div className="space-y-4">
-                    <p className="font-medium text-white">1.1 ХИЧЭЭЛИЙН ЗОРИЛГО:</p>
-                    <p className="leading-relaxed">
-                      Бизнесийн байгууллагын аж ахуйн үйл ажиллагаа, ажил гүйлгээний мэдээллийг боловсруулах, бүртгэлд тусгах, бүртгэлийн мэдээллийг ашиглан санхүүгийн тайланг тогтоосон хугацаанд нь СТОУС болон бусад хууль тогтоомжийн дагуу иж бүрэн санхүүгийн тайлан бэлтгэн гаргах арга зүйд сургах зорилготой.
-                    </p>
-                    <p className="font-medium text-white">1.2 ХИЧЭЭЛИЙН ҮНДСЭН АГУУЛГА:</p>
-                    <ul className="list-disc list-inside space-y-1 ml-2">
-                      <li>НББ-н тухай ойлголт, данс</li>
-                      <li>Тохиргоо бичилт</li>
-                      <li>Ерөнхий журнал, гүйлгээ шалгах баланс</li>
-                      <li>Бараа материал</li>
-                      <li>Санхүүгийн тайлан</li>
-                      <li>Цалин, хөдөлмөрийн хөлс</li>
-                      <li>НДШ, ХХОАТ</li>
-                      <li>Аж ахуй нэгжийн орлогын албан татварын тайлан</li>
-                      <li>Нэмэгдсэн өртгийн албан татвар</li>
-                      <li>Эрдэм трейд /цогц бодлого/</li>
-                    </ul>
-                    <p className="font-medium text-white">1.3 МЭДЛЭГ:</p>
-                    <p className="leading-relaxed">
-                      Аж ахуй нэгжийн хөрөнгө, өр төлбөр, цэвэр хөрөнгийг зохих журмын дагуу ашиглан, бүтэц бүрэлдэхүүнийг судлан, санхүүгийн анхан шатны мэдлэгийг эзэмшинэ.
-                    </p>
-                    <p className="font-medium text-white">1.4 ЧАДВАР:</p>
-                    <p className="leading-relaxed">
-                      Санхүүгийн тайланг хэрэглээний зориулалтын төрөл, хэлбэрээр нь холбогдох тайлбар, тодруулгатайгаар, тогтоосон хугацаанд нь бэлтгэн гаргах талаар мэргэжлийн мэдлэг, ур чадварыг эзэмшинэ.
-                    </p>
-                    <p className="font-medium text-white">1.5 ДАДАЛ:</p>
-                    <p className="leading-relaxed">
-                      Нягтлан бодох бүртгэлийн ажил гүйлгээг шинжлэн журналд бүртгэн, санхүүгийн мэдээг иж бүрэн бэлтгэж, тайлан бэлтгэх, унших, оновчтой шийдвэр гаргах дадлыг хэвшүүлэх.
-                    </p>
-                    <p className="font-medium text-white">Дүгнэх журам: Нийт 100 оноо. Үүнээс:</p>
-                    <ul className="list-disc list-inside space-y-1 ml-2">
-                      <li>1. Цогц бодлого: 30 оноо</li>
-                      <li>2. Явцын оноо: 70 оноо</li>
-                      <li>3. Ирц: 10 оноо</li>
-                    </ul>
-                    <p className="font-medium text-white pt-2">САНХҮҮГИЙН ТАЙЛАН ГАРГАХ АРГА ЗҮЙН ХИЧЭЭЛИЙН ХӨТӨЛБӨР</p>
+            <p className="font-medium text-white">
+              {lang === 'en' ? '1.1 Course objective:' : '1.1 ХИЧЭЭЛИЙН ЗОРИЛГО:'}
+            </p>
+            <p className="leading-relaxed">
+              {lang === 'en'
+                ? 'To train participants to process business transactions, record them correctly, and prepare complete financial statements in accordance with IFRS and relevant legislation within the required deadlines.'
+                : 'Бизнесийн байгууллагын аж ахуйн үйл ажиллагаа, ажил гүйлгээний мэдээллийг боловсруулах, бүртгэлд тусгах, бүртгэлийн мэдээллийг ашиглан санхүүгийн тайланг тогтоосон хугацаанд нь СТОУС болон бусад хууль тогтоомжийн дагуу иж бүрэн санхүүгийн тайлан бэлтгэн гаргах арга зүйд сургах зорилготой.'}
+            </p>
+            <p className="font-medium text-white">
+              {lang === 'en' ? '1.2 Main topics:' : '1.2 ХИЧЭЭЛИЙН ҮНДСЭН АГУУЛГА:'}
+            </p>
+            <ul className="list-disc list-inside space-y-1 ml-2">
+              {lang === 'en' ? (
+                <>
+                  <li>Introduction to accounting and accounts</li>
+                  <li>Adjusting entries</li>
+                  <li>General journal and trial balance</li>
+                  <li>Inventory</li>
+                  <li>Financial statements</li>
+                  <li>Salaries and wages</li>
+                  <li>Social insurance and personal income tax</li>
+                  <li>Corporate income tax return</li>
+                  <li>Value added tax return</li>
+                  <li>Comprehensive case study</li>
+                </>
+              ) : (
+                <>
+                  <li>НББ-н тухай ойлголт, данс</li>
+                  <li>Тохиргоо бичилт</li>
+                  <li>Ерөнхий журнал, гүйлгээ шалгах баланс</li>
+                  <li>Бараа материал</li>
+                  <li>Санхүүгийн тайлан</li>
+                  <li>Цалин, хөдөлмөрийн хөлс</li>
+                  <li>НДШ, ХХОАТ</li>
+                  <li>Аж ахуй нэгжийн орлогын албан татварын тайлан</li>
+                  <li>Нэмэгдсэн өртгийн албан татвар</li>
+                  <li>Эрдэм трейд /цогц бодлого/</li>
+                </>
+              )}
+            </ul>
+            <p className="font-medium text-white">
+              {lang === 'en' ? '1.3 Knowledge:' : '1.3 МЭДЛЭГ:'}
+            </p>
+            <p className="leading-relaxed">
+              {lang === 'en'
+                ? 'You will gain a foundational understanding of an entity’s assets, liabilities and equity, and how they are structured and presented in financial statements.'
+                : 'Аж ахуй нэгжийн хөрөнгө, өр төлбөр, цэвэр хөрөнгийг зохих журмын дагуу ашиглан, бүтэц бүрэлдэхүүнийг судлан, санхүүгийн анхан шатны мэдлэгийг эзэмшинэ.'}
+            </p>
+            <p className="font-medium text-white">
+              {lang === 'en' ? '1.4 Skills:' : '1.4 ЧАДВАР:'}
+            </p>
+            <p className="leading-relaxed">
+              {lang === 'en'
+                ? 'You will be able to prepare complete financial statements with appropriate notes and explanations, in the required format and time frame.'
+                : 'Санхүүгийн тайланг хэрэглээний зориулалтын төрөл, хэлбэрээр нь холбогдох тайлбар, тодруулгатайгаар, тогтоосон хугацаанд нь бэлтгэн гаргах талаар мэргэжлийн мэдлэг, ур чадварыг эзэмшинэ.'}
+            </p>
+            <p className="font-medium text-white">
+              {lang === 'en' ? '1.5 Habits and practice:' : '1.5 ДАДАЛ:'}
+            </p>
+            <p className="leading-relaxed">
+              {lang === 'en'
+                ? 'You will develop the habit of analysing transactions, recording them correctly, preparing complete financial information, and using it to read statements and make sound decisions.'
+                : 'Нягтлан бодох бүртгэлийн ажил гүйлгээг шинжлэн журналд бүртгэн, санхүүгийн мэдээг иж бүрэн бэлтгэж, тайлан бэлтгэх, унших, оновчтой шийдвэр гаргах дадлыг хэвшүүлэх.'}
+            </p>
+            <p className="font-medium text-white">
+              {lang === 'en' ? 'Assessment: total 100 points, including:' : 'Дүгнэх журам: Нийт 100 оноо. Үүнээс:'}
+            </p>
+            <ul className="list-disc list-inside space-y-1 ml-2">
+              {lang === 'en' ? (
+                <>
+                  <li>1. Comprehensive case: 30 points</li>
+                  <li>2. Ongoing (in‑class) assessment: 70 points</li>
+                  <li>3. Attendance: 10 points</li>
+                </>
+              ) : (
+                <>
+                  <li>1. Цогц бодлого: 30 оноо</li>
+                  <li>2. Явцын оноо: 70 оноо</li>
+                  <li>3. Ирц: 10 оноо</li>
+                </>
+              )}
+            </ul>
+            <p className="font-medium text-white pt-2">
+              {lang === 'en'
+                ? 'Syllabus: Financial statement preparation'
+                : 'САНХҮҮГИЙН ТАЙЛАН ГАРГАХ АРГА ЗҮЙН ХИЧЭЭЛИЙН ХӨТӨЛБӨР'}
+            </p>
                     <div className="overflow-x-auto pt-2">
                       <table className="w-full text-sm border-collapse">
                         <thead>
                           <tr className="border-b border-white/10">
-                            <th className="text-left py-2 pr-4 text-white/80">№</th>
-                            <th className="text-left py-2 pr-4 text-white/80">Сэдэв</th>
-                            <th className="text-left py-2 pr-4 text-white/80">Заах цаг</th>
-                            <th className="text-left py-2 text-white/80">Эзэмших чадвар</th>
-                            <th className="text-left py-2 text-white/80">Тайлбар</th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'No.' : '№'}
+                            </th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'Topic' : 'Сэдэв'}
+                            </th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'Hours' : 'Заах цаг'}
+                            </th>
+                            <th className="text-left py-2 text-white/80">
+                              {lang === 'en' ? 'Target competency' : 'Эзэмших чадвар'}
+                            </th>
+                            <th className="text-left py-2 text-white/80">
+                              {lang === 'en' ? 'Notes' : 'Тайлбар'}
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -128,7 +207,9 @@ export default function TrainingPage() {
                             </tr>
                           ))}
                           <tr className="border-t-2 border-white/20 font-medium">
-                            <td className="py-2 pr-4" colSpan="2">Нийт</td>
+                            <td className="py-2 pr-4" colSpan="2">
+                              {lang === 'en' ? 'Total' : 'Нийт'}
+                            </td>
                             <td className="py-2 pr-4">60</td>
                             <td className="py-2" colSpan="2"></td>
                           </tr>
@@ -140,39 +221,67 @@ export default function TrainingPage() {
                   {/* Санхүүгийн тайлан гаргах арга зүйн сургалт – цагийн хуваарь */}
                   <section className="mt-10 space-y-4">
                     <h3 className="text-xl font-semibold text-white">
-                      САНХҮҮГИЙН ТАЙЛАН ГАРГАХ АРГА ЗҮЙН СУРГАЛТ
+                      {lang === 'en'
+                        ? 'Financial statement preparation – course schedule'
+                        : 'САНХҮҮГИЙН ТАЙЛАН ГАРГАХ АРГА ЗҮЙН СУРГАЛТ'}
                     </h3>
                     <p className="leading-relaxed text-white/85">
-                      Танхимын анги 21 хоногийн хугацаатай бөгөөд сургалтын төрөл, үргэлжлэх хугацаа, хичээлийн хуваарь дараах байдлаар байна.
+                      {lang === 'en'
+                        ? 'The classroom course runs for 21 days. The types of training, duration, and class schedules are as follows.'
+                        : 'Танхимын анги 21 хоногийн хугацаатай бөгөөд сургалтын төрөл, үргэлжлэх хугацаа, хичээлийн хуваарь дараах байдлаар байна.'}
                     </p>
                     <div className="overflow-x-auto">
                       <table className="w-full text-sm border-collapse">
                         <thead>
                           <tr className="border-b border-white/10">
-                            <th className="text-left py-2 pr-4 text-white/80">Д/Д</th>
-                            <th className="text-left py-2 pr-4 text-white/80">Сургалтын төрөл</th>
-                            <th className="text-left py-2 pr-4 text-white/80">Үргэлжлэх хугацаа</th>
-                            <th className="text-left py-2 pr-4 text-white/80">Хичээлийн хуваарь</th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'No.' : 'Д/Д'}
+                            </th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'Training type' : 'Сургалтын төрөл'}
+                            </th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'Duration' : 'Үргэлжлэх хугацаа'}
+                            </th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'Class schedule' : 'Хичээлийн хуваарь'}
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr className="border-b border-white/5">
                             <td className="py-2 pr-4">1</td>
-                            <td className="py-2 pr-4">Танхимын сургалт</td>
-                            <td className="py-2 pr-4">21 хоног</td>
-                            <td className="py-2 pr-4">Өглөө, орой</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Classroom training' : 'Танхимын сургалт'}
+                            </td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? '21 days' : '21 хоног'}
+                            </td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Morning, evening' : 'Өглөө, орой'}
+                            </td>
                           </tr>
                           <tr className="border-b border-white/5">
                             <td className="py-2 pr-4">2</td>
-                            <td className="py-2 pr-4">Онлайн сургалт</td>
-                            <td className="py-2 pr-4">21 хоног</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Online training' : 'Онлайн сургалт'}
+                            </td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? '21 days' : '21 хоног'}
+                            </td>
                             <td className="py-2 pr-4">14:00–16:00</td>
                           </tr>
                           <tr className="border-b border-white/5">
                             <td className="py-2 pr-4">3</td>
-                            <td className="py-2 pr-4">Ганцаарчилсан сургалт</td>
-                            <td className="py-2 pr-4">14 хоног</td>
-                            <td className="py-2 pr-4">Өглөө, өдөр, орой</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'One‑to‑one training' : 'Ганцаарчилсан сургалт'}
+                            </td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? '14 days' : '14 хоног'}
+                            </td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Morning, afternoon, evening' : 'Өглөө, өдөр, орой'}
+                            </td>
                           </tr>
                         </tbody>
                       </table>
@@ -182,21 +291,29 @@ export default function TrainingPage() {
                       <table className="w-full text-sm border-collapse">
                         <thead>
                           <tr className="border-b border-white/10">
-                            <th className="text-left py-2 pr-4 text-white/80">Цагийн хуваарь</th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'Time of day' : 'Цагийн хуваарь'}
+                            </th>
                             <th className="text-left py-2 pr-4 text-white/80"></th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr className="border-b border-white/5">
-                            <td className="py-2 pr-4">Өглөө</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Morning' : 'Өглөө'}
+                            </td>
                             <td className="py-2 pr-4">10:00–13:00</td>
                           </tr>
                           <tr className="border-b border-white/5">
-                            <td className="py-2 pr-4">Өдөр</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Afternoon' : 'Өдөр'}
+                            </td>
                             <td className="py-2 pr-4">14:00–17:00</td>
                           </tr>
                           <tr className="border-b border-white/5">
-                            <td className="py-2 pr-4">Орой</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Evening' : 'Орой'}
+                            </td>
                             <td className="py-2 pr-4">19:00–21:30</td>
                           </tr>
                         </tbody>
@@ -207,34 +324,48 @@ export default function TrainingPage() {
                   {/* CPA / ЛЕКЦ / ТМЗ сургалтын цагийн хуваарь */}
                   <section className="mt-10 space-y-4">
                     <h3 className="text-xl font-semibold text-white">
-                      /CPA/, /ЛЕКЦ/, /ТМЗ/ СУРГАЛТ
+                      {lang === 'en' ? '/CPA/, lectures, /TMZ/ training' : '/CPA/, /ЛЕКЦ/, /ТМЗ/ СУРГАЛТ'}
                     </h3>
                     <p className="leading-relaxed text-white/85">
-                      CPA, лекц, ТМЗ сургалтууд 7 хоногт 3 өдөр зохион байгуулагдана. Доорх хүснэгтүүд нь боломжит хичээл орох өдрүүдийн жишиг хуваарийг харуулна.
+                      {lang === 'en'
+                        ? 'CPA, lecture and TMZ trainings are held three days a week. The following tables show example schedules for possible class days.'
+                        : 'CPA, лекц, ТМЗ сургалтууд 7 хоногт 3 өдөр зохион байгуулагдана. Доорх хүснэгтүүд нь боломжит хичээл орох өдрүүдийн жишиг хуваарийг харуулна.'}
                     </p>
                     <div className="overflow-x-auto">
                       <table className="w-full text-sm border-collapse mb-4">
                         <thead>
                           <tr className="border-b border-white/10">
-                            <th className="text-left py-2 pr-4 text-white/80">Д/Д</th>
-                            <th className="text-left py-2 pr-4 text-white/80">Хичээл орох гариг</th>
-                            <th className="text-left py-2 pr-4 text-white/80">Хичээлийн цаг</th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'No.' : 'Д/Д'}
+                            </th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'Class day' : 'Хичээл орох гариг'}
+                            </th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'Class time' : 'Хичээлийн цаг'}
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr className="border-b border-white/5">
                             <td className="py-2 pr-4">1</td>
-                            <td className="py-2 pr-4">Даваа</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Monday' : 'Даваа'}
+                            </td>
                             <td className="py-2 pr-4">19:00–21:30</td>
                           </tr>
                           <tr className="border-b border-white/5">
                             <td className="py-2 pr-4">2</td>
-                            <td className="py-2 pr-4">Лхагва</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Wednesday' : 'Лхагва'}
+                            </td>
                             <td className="py-2 pr-4">19:00–21:30</td>
                           </tr>
                           <tr className="border-b border-white/5">
                             <td className="py-2 pr-4">3</td>
-                            <td className="py-2 pr-4">Бямба</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Saturday' : 'Бямба'}
+                            </td>
                             <td className="py-2 pr-4">10:00–17:30</td>
                           </tr>
                         </tbody>
@@ -243,25 +374,37 @@ export default function TrainingPage() {
                       <table className="w-full text-sm border-collapse">
                         <thead>
                           <tr className="border-b border-white/10">
-                            <th className="text-left py-2 pr-4 text-white/80">Д/Д</th>
-                            <th className="text-left py-2 pr-4 text-white/80">Хичээл орох гариг</th>
-                            <th className="text-left py-2 pr-4 text-white/80">Хичээлийн цаг</th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'No.' : 'Д/Д'}
+                            </th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'Class day' : 'Хичээл орох гариг'}
+                            </th>
+                            <th className="text-left py-2 pr-4 text-white/80">
+                              {lang === 'en' ? 'Class time' : 'Хичээлийн цаг'}
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr className="border-b border-white/5">
                             <td className="py-2 pr-4">1</td>
-                            <td className="py-2 pr-4">Мягмар</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Tuesday' : 'Мягмар'}
+                            </td>
                             <td className="py-2 pr-4">19:00–21:30</td>
                           </tr>
                           <tr className="border-b border-white/5">
                             <td className="py-2 pr-4">2</td>
-                            <td className="py-2 pr-4">Баасан</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Friday' : 'Баасан'}
+                            </td>
                             <td className="py-2 pr-4">19:00–21:30</td>
                           </tr>
                           <tr className="border-b border-white/5">
                             <td className="py-2 pr-4">3</td>
-                            <td className="py-2 pr-4">Ням</td>
+                            <td className="py-2 pr-4">
+                              {lang === 'en' ? 'Sunday' : 'Ням'}
+                            </td>
                             <td className="py-2 pr-4">10:00–17:30</td>
                           </tr>
                         </tbody>
@@ -274,33 +417,91 @@ export default function TrainingPage() {
     if (activeTab === 'cpa') {
       return (
         <div className="space-y-6">
-                  <h2 className="text-xl font-semibold text-white">Мэргэшсэн нягтлан бодогч эрх олгох шалгалтанд бэлтгэх сургалт / CPA /</h2>
-                  <p className="leading-relaxed">
-                    Мэргэжлийн өндөр чадвартай нягтлан бодогчийг онол, дадлага практикаар бэлтгэх зорилготой. Мэргэшсэн нягтлан бодогч эрх олгох шалгалтанд бэлтгэх сургалт нь онол, дадлага, практик гэсэн 3 хэсгээс бүрдэнэ.
-                  </p>
-                  <div className="space-y-2">
-                    <p className="font-medium text-white">ОНОЛ:</p>
-                    <p className="leading-relaxed text-white/85">Сурсан сэдвүүдийн онолын мэдлэгээ дээшлүүлэх, шинэ стандартуудыг ойлгох, одоогийн дүрэм журам, хууль тогтоомжийн мэдээлэлтэй байх.</p>
-                    <p className="font-medium text-white">ДАДЛАГА:</p>
-                    <p className="leading-relaxed text-white/85">Бодлого, дасгал, цогц бодлогоор онолын мэдлэгээ бэхжүүлэх.</p>
-                    <p className="font-medium text-white">ПРАКТИК:</p>
-                    <p className="leading-relaxed text-white/85">Олсон онол, дадлагын мэдлэг Монгол улсын Ерөнхий худалдааны хууль болон холбогдох хууль дүрэм журамтай хэрхэн нийцэж, бодит ажиллагаанд хэрхэн ашиглах талаар мэдээлэл өгнө.</p>
-                  </div>
-                  <p className="font-medium text-white">2.1 Мэргэшсэн нягтлан бодогчийн эрх олгох шалгалтанд хэн орох эрхтэй вэ?</p>
-                  <ul className="list-disc list-inside space-y-1 ml-2">
-                    <li>Нягтлан бодох бүртгэлийн мэргэжлээр бакалавр зэрэгтэй, мэргэжлээрээ 2 ба түүнээс дээш жил ажилласан мэргэжлийн нягтлан бодогчид</li>
-                    <li>Эдийн засагч, санхүүчид нягтлан бодогчийн албан тушаалд 4 жил ажилласан бол</li>
-                  </ul>
-                  <p className="font-medium text-white">2.2 Мэргэшсэн нягтлан бодогчийн эрх олгох шалгалт 2 үе шаттай. Сорил шалгалт нь:</p>
-                  <ul className="list-disc list-inside space-y-1 ml-2">
-                    <li>Мэргэжлийн ёс зүй</li>
-                    <li>Санхүүгийн тайлан гаргах арга зүй / цогц бодлого /</li>
-                    <li>Англи хэл</li>
-                    <li>Мэдээллийн технологи (4 хичээл)</li>
-                  </ul>
-                  <p className="leading-relaxed text-white/85">
-                    Үүнээс Мэргэжлийн ёс зүй, Санхүүгийн тайлан гаргах арга зүй / цогц бодлого / гэсэн 2 хичээлийн мэргэшсэн нягтлан бодогчийн институтээс зарласан сургалтанд заавал сууж батламж буюу гэрчилгээг авсанаар шалгалтанд орох эрх үүснэ. Сорил шалгалт тус бүрийг 0–100 оноогоор үнэлэх ба үүнээс 60 хувиас дээш оноо авсан бол шалгалтанд тэнцсэнд тооцно.
-                  </p>
+          <h2 className="text-xl font-semibold text-white">
+            {lang === 'en'
+              ? 'CPA (Certified Public Accountant) exam preparation training'
+              : 'Мэргэшсэн нягтлан бодогч эрх олгох шалгалтанд бэлтгэх сургалт / CPA /'}
+          </h2>
+          <p className="leading-relaxed">
+            {lang === 'en'
+              ? 'This program aims to develop highly skilled professional accountants through theory, practice and application. The CPA preparation course is structured in three parts: theory, practice exercises and real‑world application.'
+              : 'Мэргэжлийн өндөр чадвартай нягтлан бодогчийг онол, дадлага практикаар бэлтгэх зорилготой. Мэргэшсэн нягтлан бодогч эрх олгох шалгалтанд бэлтгэх сургалт нь онол, дадлага, практик гэсэн 3 хэсгээс бүрдэнэ.'}
+          </p>
+          <div className="space-y-2">
+            <p className="font-medium text-white">
+              {lang === 'en' ? 'THEORY:' : 'ОНОЛ:'}
+            </p>
+            <p className="leading-relaxed text-white/85">
+              {lang === 'en'
+                ? 'Deepen your theoretical knowledge of studied topics, understand new standards, and stay current with existing rules, regulations and legislation.'
+                : 'Сурсан сэдвүүдийн онолын мэдлэгээ дээшлүүлэх, шинэ стандартуудыг ойлгох, одоогийн дүрэм журам, хууль тогтоомжийн мэдээлэлтэй байх.'}
+            </p>
+            <p className="font-medium text-white">
+              {lang === 'en' ? 'PRACTICE EXERCISES:' : 'ДАДЛАГА:'}
+            </p>
+            <p className="leading-relaxed text-white/85">
+              {lang === 'en'
+                ? 'Strengthen theory through problems, exercises, and comprehensive case studies.'
+                : 'Бодлого, дасгал, цогц бодлогоор онолын мэдлэгээ бэхжүүлэх.'}
+            </p>
+            <p className="font-medium text-white">
+              {lang === 'en' ? 'APPLICATION:' : 'ПРАКТИК:'}
+            </p>
+            <p className="leading-relaxed text-white/85">
+              {lang === 'en'
+                ? 'Connect your knowledge to Mongolian commercial law and related legislation, and learn how to apply it in real‑life business situations.'
+                : 'Олсон онол, дадлагын мэдлэг Монгол улсын Ерөнхий худалдааны хууль болон холбогдох хууль дүрэм журамтай хэрхэн нийцэж, бодит ажиллагаанд хэрхэн ашиглах талаар мэдээлэл өгнө.'}
+            </p>
+          </div>
+          <p className="font-medium text-white">
+            {lang === 'en'
+              ? '2.1 Who is eligible to sit the CPA exam?'
+              : '2.1 Мэргэшсэн нягтлан бодогчийн эрх олгох шалгалтанд хэн орох эрхтэй вэ?'}
+          </p>
+          <ul className="list-disc list-inside space-y-1 ml-2">
+            {lang === 'en' ? (
+              <>
+                <li>
+                  Professional accountants with a bachelor’s degree in accounting and at least 2 years of experience in the profession
+                </li>
+                <li>
+                  Economists and finance specialists who have worked in an accounting position for 4 or more years
+                </li>
+              </>
+            ) : (
+              <>
+                <li>Нягтлан бодох бүртгэлийн мэргэжлээр бакалавр зэрэгтэй, мэргэжлээрээ 2 ба түүнээс дээш жил ажилласан мэргэжлийн нягтлан бодогчид</li>
+                <li>Эдийн засагч, санхүүчид нягтлан бодогчийн албан тушаалд 4 жил ажилласан бол</li>
+              </>
+            )}
+          </ul>
+          <p className="font-medium text-white">
+            {lang === 'en'
+              ? '2.2 The CPA qualification exam has two stages. The preliminary (screening) exam includes:'
+              : '2.2 Мэргэшсэн нягтлан бодогчийн эрх олгох шалгалт 2 үе шаттай. Сорил шалгалт нь:'}
+          </p>
+          <ul className="list-disc list-inside space-y-1 ml-2">
+            {lang === 'en' ? (
+              <>
+                <li>Professional ethics</li>
+                <li>Financial statement preparation / comprehensive case study</li>
+                <li>English language</li>
+                <li>Information technology (4 subjects)</li>
+              </>
+            ) : (
+              <>
+                <li>Мэргэжлийн ёс зүй</li>
+                <li>Санхүүгийн тайлан гаргах арга зүй / цогц бодлого /</li>
+                <li>Англи хэл</li>
+                <li>Мэдээллийн технологи (4 хичээл)</li>
+              </>
+            )}
+          </ul>
+          <p className="leading-relaxed text-white/85">
+            {lang === 'en'
+              ? 'For the subjects “Professional ethics” and “Financial statement preparation / comprehensive case study”, you must complete the official training announced by the Institute of Professional Accountants and obtain a certificate in order to be eligible for the exam. Each preliminary exam is scored from 0–100, and a score of 60% or higher is considered a pass.'
+              : 'Үүнээс Мэргэжлийн ёс зүй, Санхүүгийн тайлан гаргах арга зүй / цогц бодлого / гэсэн 2 хичээлийн мэргэшсэн нягтлан бодогчийн институтээс зарласан сургалтанд заавал сууж батламж буюу гэрчилгээг авсанаар шалгалтанд орох эрх үүснэ. Сорил шалгалт тус бүрийг 0–100 оноогоор үнэлэх ба үүнээс 60 хувиас дээш оноо авсан бол шалгалтанд тэнцсэнд тооцно.'}
+          </p>
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm border-collapse">
                       <thead>
@@ -318,11 +519,19 @@ export default function TrainingPage() {
                       </tbody>
                     </table>
                   </div>
-                  <p className="text-white/85 text-sm">Сорил шалгалтаас санхүүгийн тайлагнал буюу цогц бодлого хичээлийн шалгалтын хүчинтэй хугацаа 24 сар байна.</p>
-                  <p className="font-medium text-white">Үндсэн шалгалт</p>
-                  <p className="leading-relaxed text-white/85">
-                    Сорил 4 хичээлийн шалгалтад тэнцсэн батламжаа авсан шалгуулагч үндсэн шалгалтанд орох эрх үүснэ. Үндсэн 5 хичээлийн шалгалт тус бүрийг 0–100 оноогоор үнэлнэ, үүнээс 70 хувиас дээш оноо авч шалгалтандаа тэнцэнэ. Шалгалтын хүчинтэй хугацаа 5 жил байна.
-                  </p>
+          <p className="text-white/85 text-sm">
+            {lang === 'en'
+              ? 'The result of the “Financial reporting / comprehensive case study” preliminary exam is valid for 24 months.'
+              : 'Сорил шалгалтаас санхүүгийн тайлагнал буюу цогц бодлого хичээлийн шалгалтын хүчинтэй хугацаа 24 сар байна.'}
+          </p>
+          <p className="font-medium text-white">
+            {lang === 'en' ? 'Main exam' : 'Үндсэн шалгалт'}
+          </p>
+          <p className="leading-relaxed text-white/85">
+            {lang === 'en'
+              ? 'Candidates who have passed all four preliminary exams and obtained certificates become eligible for the main exam. Each of the five main exam subjects is scored from 0–100, and a score of 70% or higher is required to pass. The validity period for passing the full set of exams is 5 years.'
+              : 'Сорил 4 хичээлийн шалгалтад тэнцсэн батламжаа авсан шалгуулагч үндсэн шалгалтанд орох эрх үүснэ. Үндсэн 5 хичээлийн шалгалт тус бүрийг 0–100 оноогоор үнэлнэ, үүнээс 70 хувиас дээш оноо авч шалгалтандаа тэнцэнэ. Шалгалтын хүчинтэй хугацаа 5 жил байна.'}
+          </p>
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm border-collapse">
                       <thead>
@@ -341,11 +550,13 @@ export default function TrainingPage() {
                       </tbody>
                     </table>
                   </div>
-                  <p className="leading-relaxed text-white/85">
-                    Мэргэшсэн нягтлан бодогчийн эрхийг 4 жилийн хугацаатай авна. 4 жилийн дараа хугацаагүй эрхээ авна. Манай байгууллагын хувьд дээрх хичээлүүдээс дараах 4 хичээлийг зааж байна: 1. Санхүүгийн тайлагнал 2. Хууль 3. Өртөг ба гүйцэтгэлийн удирдлага 4. Санхүүгийн менежмент
-                  </p>
+          <p className="leading-relaxed text-white/85">
+            {lang === 'en'
+              ? 'The initial CPA certificate is issued for 4 years; after that, a permanent licence can be obtained. Our organization currently offers preparation courses for the following four subjects: 1) Financial reporting, 2) Law, 3) Cost and performance management, and 4) Financial management.'
+              : 'Мэргэшсэн нягтлан бодогчийн эрхийг 4 жилийн хугацаатай авна. 4 жилийн дараа хугацаагүй эрхээ авна. Манай байгууллагын хувьд дээрх хичээлүүдээс дараах 4 хичээлийг зааж байна: 1. Санхүүгийн тайлагнал 2. Хууль 3. Өртөг ба гүйцэтгэлийн удирдлага 4. Санхүүгийн менежмент'}
+          </p>
                   <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
-                    {CPA_SUB_TABS.map((t) => (
+                  {CPA_SUB_TABS.map((t) => (
                       <button
                         key={t.id}
                         type="button"
@@ -354,36 +565,69 @@ export default function TrainingPage() {
                           cpaSubTab === t.id ? 'bg-[#10b981] text-white' : 'bg-white/10 text-white/90 hover:bg-white/15'
                         }`}
                       >
-                        {t.label}
+                        {lang === 'en' ? t.labelEn : t.labelMn}
                       </button>
                     ))}
                   </div>
 
                   {cpaSubTab === 'sanhuu-taiлагnal' && (
                     <div className="space-y-4 pt-4">
-                      <h3 className="text-lg font-semibold text-white">А. САНХҮҮГИЙН ТАЙЛАГНАЛ:</h3>
+                      <h3 className="text-lg font-semibold text-white">
+                        {lang === 'en' ? 'A. Financial reporting' : 'А. САНХҮҮГИЙН ТАЙЛАГНАЛ:'}
+                      </h3>
                       <p className="leading-relaxed">
-                        Энэ хичээлийг үзсэнээр нягтлан бодох бүртгэлийн салбар салбарын бүртгэлийн онцлог, ялгааг мэдэж ур чадвараа өсгөнө.
+                        {lang === 'en'
+                          ? 'In this subject you will understand the specific features of accounting across different sectors and deepen your practical skills.'
+                          : 'Энэ хичээлийг үзсэнээр нягтлан бодох бүртгэлийн салбар салбарын бүртгэлийн онцлог, ялгааг мэдэж ур чадвараа өсгөнө.'}
                       </p>
-                      <p className="font-medium text-white">Хичээлийн зорилго:</p>
-                      <p className="leading-relaxed">
-                        Санхүүгийн Тайлагналын Олон улсын стандартын талаар ерөнхий ойлголтийг өгөх болон онол практикийг хослуулан хэрэглэхэд сургахад оршино.
-                      </p>
-                      <p className="font-medium text-white">Хичээлийн үндсэн агуулга:</p>
-                      <p className="leading-relaxed">
-                        Санхүүгийн тайланд шинжилгээ хийх, асуудлыг илрүүлэх, дүгнэлт гаргах, шийдвэр гаргах арга зүй.
-                      </p>
-                      <p className="font-medium text-white">Суралцагчдад эзэмшүүлэх:</p>
-                      <p className="leading-relaxed">
-                        <strong className="text-white">Мэдлэг:</strong> Санхүүгийн тайлагналын хэрэгжүүлэлт, салбар бүрийн бүртгэлийн онцлогийг Монгол улсын хууль, дүрэм журамтай уялдуулан бүртгэж сурах мэдлэг.
+                      <p className="font-medium text-white">
+                        {lang === 'en' ? 'Course objective:' : 'Хичээлийн зорилго:'}
                       </p>
                       <p className="leading-relaxed">
-                        <strong className="text-white">Чадвар:</strong> Санхүүгийн тайланг уншиж шинжилгээ хийх, гол үзүүлэлтүүдийг ашиглан дүгнэлт гаргаж шийдвэр гаргах чадвар.
+                        {lang === 'en'
+                          ? 'To provide a general understanding of International Financial Reporting Standards (IFRS) and to train participants to apply them in practice.'
+                          : 'Санхүүгийн Тайлагналын Олон улсын стандартын талаар ерөнхий ойлголтийг өгөх болон онол практикийг хослуулан хэрэглэхэд сургахад оршино.'}
+                      </p>
+                      <p className="font-medium text-white">
+                        {lang === 'en' ? 'Main content:' : 'Хичээлийн үндсэн агуулга:'}
                       </p>
                       <p className="leading-relaxed">
-                        <strong className="text-white">Дадал:</strong> Онол практикийг зөв хослуулж, тооны машин болон Excel дээр хурдтай, алдаагүй ажиллах дадал.
+                        {lang === 'en'
+                          ? 'Analysing financial statements, identifying issues, drawing conclusions and making decisions based on key indicators.'
+                          : 'Санхүүгийн тайланд шинжилгээ хийх, асуудлыг илрүүлэх, дүгнэлт гаргах, шийдвэр гаргах арга зүй.'}
                       </p>
-                      <p className="font-medium text-white pt-2">САНХҮҮГИЙН ТАЙЛАГНАЛ ХИЧЭЭЛИЙН ХӨТӨЛБӨР</p>
+                      <p className="font-medium text-white">
+                        {lang === 'en' ? 'Outcomes for learners:' : 'Суралцагчдад эзэмшүүлэх:'}
+                      </p>
+                      <p className="leading-relaxed">
+                        <strong className="text-white">
+                          {lang === 'en' ? 'Knowledge: ' : 'Мэдлэг:'}
+                        </strong>
+                        {lang === 'en'
+                          ? ' Understanding how to implement financial reporting standards and sector‑specific accounting in line with Mongolian laws and regulations.'
+                          : ' Санхүүгийн тайлагналын хэрэгжүүлэлт, салбар бүрийн бүртгэлийн онцлогийг Монгол улсын хууль, дүрэм журамтай уялдуулан бүртгэж сурах мэдлэг.'}
+                      </p>
+                      <p className="leading-relaxed">
+                        <strong className="text-white">
+                          {lang === 'en' ? 'Skills: ' : 'Чадвар:'}
+                        </strong>
+                        {lang === 'en'
+                          ? ' Ability to read and analyse financial statements and use key indicators to draw conclusions and make decisions.'
+                          : ' Санхүүгийн тайланг уншиж шинжилгээ хийх, гол үзүүлэлтүүдийг ашиглан дүгнэлт гаргаж шийдвэр гаргах чадвар.'}
+                      </p>
+                      <p className="leading-relaxed">
+                        <strong className="text-white">
+                          {lang === 'en' ? 'Habits: ' : 'Дадал:'}
+                        </strong>
+                        {lang === 'en'
+                          ? ' Developing the habit of combining theory with practice and working quickly and accurately with calculators and Excel.'
+                          : ' Онол практикийг зөв хослуулж, тооны машин болон Excel дээр хурдтай, алдаагүй ажиллах дадал.'}
+                      </p>
+                      <p className="font-medium text-white pt-2">
+                        {lang === 'en'
+                          ? 'Syllabus: Financial reporting'
+                          : 'САНХҮҮГИЙН ТАЙЛАГНАЛ ХИЧЭЭЛИЙН ХӨТӨЛБӨР'}
+                      </p>
                       <div className="overflow-x-auto">
                         <table className="w-full text-sm border-collapse">
                           <thead>
@@ -415,18 +659,32 @@ export default function TrainingPage() {
 
                   {cpaSubTab === 'huuli' && (
                     <div className="space-y-4 pt-6">
-                      <h3 className="text-lg font-semibold text-white">В. ХУУЛЬ</h3>
+                      <h3 className="text-lg font-semibold text-white">
+                        {lang === 'en' ? 'B. Law' : 'В. ХУУЛЬ'}
+                      </h3>
                       <p className="leading-relaxed">
-                        Хууль зүйн ойлголтыг гүнзгийрүүлж, татварын эрх зүйн орчныг системтэйгээр судлуулж, практикт хэрэглэх чадварт сургана.
+                        {lang === 'en'
+                          ? 'This subject deepens legal understanding, explores the tax legal environment systematically, and develops the ability to apply it in practice.'
+                          : 'Хууль зүйн ойлголтыг гүнзгийрүүлж, татварын эрх зүйн орчныг системтэйгээр судлуулж, практикт хэрэглэх чадварт сургана.'}
                       </p>
-                      <p className="font-medium text-white">ХУУЛЬ, ЭРХ ЗҮЙ, ТАТВАРЫН БҮРТГЭЛИЙН ИЖ БҮРЭН ХӨТӨЛБӨР</p>
+                      <p className="font-medium text-white">
+                        {lang === 'en'
+                          ? 'Comprehensive program in law, legal framework, and tax accounting'
+                          : 'ХУУЛЬ, ЭРХ ЗҮЙ, ТАТВАРЫН БҮРТГЭЛИЙН ИЖ БҮРЭН ХӨТӨЛБӨР'}
+                      </p>
                       <div className="overflow-x-auto">
                         <table className="w-full text-sm border-collapse">
                           <thead>
                             <tr className="border-b border-white/10">
-                              <th className="text-left py-2 pr-4 text-white/80">Д/Д</th>
-                              <th className="text-left py-2 pr-4 text-white/80">Хичээлийн сэдэв</th>
-                              <th className="text-right py-2 text-white/80">Хичээл заах цаг</th>
+                              <th className="text-left py-2 pr-4 text-white/80">
+                                {lang === 'en' ? 'No.' : 'Д/Д'}
+                              </th>
+                              <th className="text-left py-2 pr-4 text-white/80">
+                                {lang === 'en' ? 'Topic' : 'Хичээлийн сэдэв'}
+                              </th>
+                              <th className="text-right py-2 text-white/80">
+                                {lang === 'en' ? 'Hours' : 'Хичээл заах цаг'}
+                              </th>
                             </tr>
                           </thead>
                           <tbody>
@@ -549,18 +807,34 @@ export default function TrainingPage() {
 
                   {cpaSubTab === 'ortog' && (
                     <div className="space-y-4 pt-6">
-                      <h3 className="text-lg font-semibold text-white">С. ӨРТӨГ БА ГҮЙЦЭТГЭЛИЙН УДИРДЛАГА</h3>
+                      <h3 className="text-lg font-semibold text-white">
+                        {lang === 'en'
+                          ? 'C. Cost and performance management'
+                          : 'С. ӨРТӨГ БА ГҮЙЦЭТГЭЛИЙН УДИРДЛАГА'}
+                      </h3>
                       <p className="leading-relaxed">
-                        Байгууллагын өртөг тооцох, төсөв төлөвлөх, гүйцэтгэлийг шинжлэх шийдвэр гаргалтад шаардлагатай мэдлэг, ур чадварыг олгоно.
+                        {lang === 'en'
+                          ? 'This subject provides the knowledge and skills needed to calculate costs, plan budgets, analyse performance and support decision‑making.'
+                          : 'Байгууллагын өртөг тооцох, төсөв төлөвлөх, гүйцэтгэлийг шинжлэх шийдвэр гаргалтад шаардлагатай мэдлэг, ур чадварыг олгоно.'}
                       </p>
-                      <p className="font-medium text-white">ӨРТӨГ БА ГҮЙЦЭТГЭЛИЙН УДИРДЛАГА ХИЧЭЭЛИЙН ХӨТӨЛБӨР</p>
+                      <p className="font-medium text-white">
+                        {lang === 'en'
+                          ? 'Syllabus: Cost and performance management'
+                          : 'ӨРТӨГ БА ГҮЙЦЭТГЭЛИЙН УДИРДЛАГА ХИЧЭЭЛИЙН ХӨТӨЛБӨР'}
+                      </p>
                       <div className="overflow-x-auto">
                         <table className="w-full text-sm border-collapse">
                           <thead>
                             <tr className="border-b border-white/10">
-                              <th className="text-left py-2 pr-4 text-white/80">Д/Д</th>
-                              <th className="text-left py-2 pr-4 text-white/80">Хичээлийн сэдэв</th>
-                              <th className="text-right py-2 text-white/80">Хичээл заах цаг</th>
+                              <th className="text-left py-2 pr-4 text-white/80">
+                                {lang === 'en' ? 'No.' : 'Д/Д'}
+                              </th>
+                              <th className="text-left py-2 pr-4 text-white/80">
+                                {lang === 'en' ? 'Topic' : 'Хичээлийн сэдэв'}
+                              </th>
+                              <th className="text-right py-2 text-white/80">
+                                {lang === 'en' ? 'Hours' : 'Хичээл заах цаг'}
+                              </th>
                             </tr>
                           </thead>
                           <tbody>
@@ -676,7 +950,7 @@ export default function TrainingPage() {
                         </tr>
                         <tr className="border-t-2 border-white/20 font-medium">
                           <td className="py-2 pr-4" colSpan="2">
-                            Нийт
+                            {lang === 'en' ? 'Total' : 'Нийт'}
                           </td>
                           <td className="py-2 text-right">100</td>
                         </tr>
@@ -688,39 +962,80 @@ export default function TrainingPage() {
 
                   {cpaSubTab === 'sanhuu-menejment' && (
                     <div className="space-y-6 pt-6">
-                      <h3 className="text-lg font-semibold text-white">D. САНХҮҮГИЙН МЕНЕЖМЕНТ</h3>
+                      <h3 className="text-lg font-semibold text-white">
+                        {lang === 'en' ? 'D. Financial management' : 'D. САНХҮҮГИЙН МЕНЕЖМЕНТ'}
+                      </h3>
                       <p className="leading-relaxed">
-                        Хичээлийн зорилго: <span className="font-medium">Санхүүгийн менежментийн талаар ерөнхий ойлголт өгөх болон онол практикийг хослуулан хэрэглэхэд сургахад оршино.</span>
+                        {lang === 'en' ? 'Course objective: ' : 'Хичээлийн зорилго: '}
+                        <span className="font-medium">
+                          {lang === 'en'
+                            ? 'To provide a general understanding of financial management and train participants to combine theory with practice.'
+                            : 'Санхүүгийн менежментийн талаар ерөнхий ойлголт өгөх болон онол практикийг хослуулан хэрэглэхэд сургахад оршино.'}
+                        </span>
                       </p>
                       <p className="leading-relaxed">
-                        Хичээлийн үндсэн агуулга: <span className="font-medium">Санхүүгийн тайланд шинжилгээ хийх, асуудлыг илрүүлэх, дүгнэлт гаргах, шийдвэр гаргах арга зүй.</span>
+                        {lang === 'en' ? 'Main content: ' : 'Хичээлийн үндсэн агуулга: '}
+                        <span className="font-medium">
+                          {lang === 'en'
+                            ? 'Analysing financial statements, identifying issues, drawing conclusions and making decisions.'
+                            : 'Санхүүгийн тайланд шинжилгээ хийх, асуудлыг илрүүлэх, дүгнэлт гаргах, шийдвэр гаргах арга зүй.'}
+                        </span>
                       </p>
                       <div className="space-y-2">
-                        <p className="font-medium text-white">Суралцагчдад эзэмшүүлэх:</p>
-                        <p className="leading-relaxed">
-                          <strong className="text-white">Мэдлэг:</strong> Санхүүгийн удирдлагын үүрэг, бизнесийн орчин, санхүүгийн зах зээл, ажлын капиталын удирдлага, хөрөнгө оруулалтын шийдвэр гаргалт,
-                          төслийн үнэлгээ, бизнесийн санхүүжилтийн өртөг, удирдлага гэсэн сэдвүүдээр мэргэшсэн нягтлан бодогчид байх ёстой мэдлэгийг олгоно.
+                        <p className="font-medium text-white">
+                          {lang === 'en' ? 'Outcomes for learners:' : 'Суралцагчдад эзэмшүүлэх:'}
                         </p>
                         <p className="leading-relaxed">
-                          <strong className="text-white">Чадвар:</strong> Ирээдүйгээ урт болон дунд хугацаагаар харж санхүүгийн үйл ажиллагаагаа төлөвлөх, стратегиа хэрэгжүүлэх, орчин нөхцөлдөө тохирсон санхүү,
-                          хөрөнгө оруулалтын шийдвэр гаргах, санхүүгийн тайланд шинжилгээ хийж хөрвөх чадвар, төлбөрийн чадвар зэрэг харьцаануудыг ашиглан дүгнэлт гаргах чадвар эзэмшинэ.
+                          <strong className="text-white">
+                            {lang === 'en' ? 'Knowledge: ' : 'Мэдлэг:'}
+                          </strong>
+                          {lang === 'en'
+                            ? 'Understanding of the role of financial management, business environment, financial markets, working capital management, investment decisions, project appraisal, cost of capital and financing.'
+                            : 'Санхүүгийн удирдлагын үүрэг, бизнесийн орчин, санхүүгийн зах зээл, ажлын капиталын удирдлага, хөрөнгө оруулалтын шийдвэр гаргалт, төслийн үнэлгээ, бизнесийн санхүүжилтийн өртөг, удирдлага гэсэн сэдвүүдээр мэргэшсэн нягтлан бодогчид байх ёстой мэдлэгийг олгоно.'}
                         </p>
                         <p className="leading-relaxed">
-                          <strong className="text-white">Дадал:</strong> Онол практикийг зөв хослуулж, тооны машин дээр хурдтай, ойлгомжтой ажиллах зэрэг практик дадал суулгана.
+                          <strong className="text-white">
+                            {lang === 'en' ? 'Skills: ' : 'Чадвар:'}
+                          </strong>
+                          {lang === 'en'
+                            ? 'Plan financial activities over the medium and long term, implement strategy, make appropriate financing and investment decisions, and analyse financial statements using key ratios.'
+                            : 'Ирээдүйгээ урт болон дунд хугацаагаар харж санхүүгийн үйл ажиллагаагаа төлөвлөх, стратегиа хэрэгжүүлэх, орчин нөхцөлдөө тохирсон санхүү, хөрөнгө оруулалтын шийдвэр гаргах, санхүүгийн тайланд шинжилгээ хийж хөрвөх чадвар, төлбөрийн чадвар зэрэг харьцаануудыг ашиглан дүгнэлт гаргах чадвар эзэмшинэ.'}
+                        </p>
+                        <p className="leading-relaxed">
+                          <strong className="text-white">
+                            {lang === 'en' ? 'Habits: ' : 'Дадал:'}
+                          </strong>
+                          {lang === 'en'
+                            ? 'Develop practical habits for combining theory with practice and working efficiently with calculations.'
+                            : 'Онол практикийг зөв хослуулж, тооны машин дээр хурдтай, ойлгомжтой ажиллах зэрэг практик дадал суулгана.'}
                         </p>
                       </div>
 
-                      <p className="font-medium text-white pt-2">САНХҮҮГИЙН МЕНЕЖМЕНТ ХИЧЭЭЛИЙН СТАНДАРТ ХӨТӨЛБӨРИЙН АГУУЛГА /ЛЕКЦ/</p>
+                      <p className="font-medium text-white pt-2">
+                        {lang === 'en'
+                          ? 'Standard syllabus content for Financial Management (lectures)'
+                          : 'САНХҮҮГИЙН МЕНЕЖМЕНТ ХИЧЭЭЛИЙН СТАНДАРТ ХӨТӨЛБӨРИЙН АГУУЛГА /ЛЕКЦ/'}
+                      </p>
 
                       <div className="overflow-x-auto">
                         <table className="w-full text-sm border-collapse">
                           <thead>
                             <tr className="border-b border-white/10">
-                              <th className="text-left py-2 pr-4 text-white/80">Долоо хоног</th>
-                              <th className="text-left py-2 pr-4 text-white/80">Орох өдөр</th>
-                              <th className="text-left py-2 pr-4 text-white/80">Сэдэв</th>
-                              <th className="text-left py-2 pr-4 text-white/80">Агуулга</th>
-                              <th className="text-right py-2 text-white/80">Заах цаг</th>
+                              <th className="text-left py-2 pr-4 text-white/80">
+                                {lang === 'en' ? 'Week' : 'Долоо хоног'}
+                              </th>
+                              <th className="text-left py-2 pr-4 text-white/80">
+                                {lang === 'en' ? 'Session' : 'Орох өдөр'}
+                              </th>
+                              <th className="text-left py-2 pr-4 text-white/80">
+                                {lang === 'en' ? 'Topic' : 'Сэдэв'}
+                              </th>
+                              <th className="text-left py-2 pr-4 text-white/80">
+                                {lang === 'en' ? 'Content' : 'Агуулга'}
+                              </th>
+                              <th className="text-right py-2 text-white/80">
+                                {lang === 'en' ? 'Hours' : 'Заах цаг'}
+                              </th>
                             </tr>
                           </thead>
                           <tbody>
@@ -948,9 +1263,15 @@ export default function TrainingPage() {
                         <table className="w-full text-sm border-collapse">
                           <thead>
                             <tr className="border-b border-white/10">
-                              <th className="text-left py-2 pr-4 text-white/80">Д/Д</th>
-                              <th className="text-left py-2 pr-4 text-white/80">Хичээлийн нэр</th>
-                              <th className="text-left py-2 pr-4 text-white/80">Шалгалтын үргэлжлэх хугацаа</th>
+                              <th className="text-left py-2 pr-4 text-white/80">
+                                {lang === 'en' ? 'No.' : 'Д/Д'}
+                              </th>
+                              <th className="text-left py-2 pr-4 text-white/80">
+                                {lang === 'en' ? 'Subject' : 'Хичээлийн нэр'}
+                              </th>
+                              <th className="text-left py-2 pr-4 text-white/80">
+                                {lang === 'en' ? 'Exam duration' : 'Шалгалтын үргэлжлэх хугацаа'}
+                              </th>
                             </tr>
                           </thead>
                           <tbody>
@@ -984,7 +1305,9 @@ export default function TrainingPage() {
                                 : 'bg-transparent text-white/70'
                             }`}
                           >
-                            САНХҮҮГИЙН ТАЙЛАГНАЛЫН ОЛОН УЛСЫН СТАНДАРТ
+                            {lang === 'en'
+                              ? 'International Financial Reporting Standards (IFRS)'
+                              : 'САНХҮҮГИЙН ТАЙЛАГНАЛЫН ОЛОН УЛСЫН СТАНДАРТ'}
                           </button>
                           <button
                             type="button"
@@ -995,26 +1318,35 @@ export default function TrainingPage() {
                                 : 'bg-transparent text-white/70'
                             }`}
                           >
-                            ТАТВАРЫН БҮРТГЭЛ
+                            {lang === 'en' ? 'Tax accounting' : 'ТАТВАРЫН БҮРТГЭЛ'}
                           </button>
                         </div>
 
                         {financeDetailTab === 'ifrs' && (
                           <div className="space-y-8">
                             <h4 className="font-semibold text-white mb-2">
-                              1. САНХҮҮГИЙН ТАЙЛАГНАЛЫН ОЛОН УЛСЫН СТАНДАРТ
+                              {lang === 'en'
+                                ? '1. International Financial Reporting Standards'
+                                : '1. САНХҮҮГИЙН ТАЙЛАГНАЛЫН ОЛОН УЛСЫН СТАНДАРТ'}
                             </h4>
                             <p className="leading-relaxed text-white/85 mb-3">
-                              Санхүүгийн тайлагналын олон улсын стандартуудыг судална. Энэхүү хичээлийг үзсэнээр нягтлан бодох бүртгэлийн салбар бүртгэлийн онцлог,
-                              ялгааг мэдэж ур чадвараа өсгөнө.
+                              {lang === 'en'
+                                ? 'In this module, you will study International Financial Reporting Standards. By the end, you will understand sector‑specific accounting features and further develop your professional skills.'
+                                : 'Санхүүгийн тайлагналын олон улсын стандартуудыг судална. Энэхүү хичээлийг үзсэнээр нягтлан бодох бүртгэлийн салбар бүртгэлийн онцлог, ялгааг мэдэж ур чадвараа өсгөнө.'}
                             </p>
                             <div className="overflow-x-auto">
                               <table className="w-full text-sm border-collapse">
                                 <thead>
                                   <tr className="border-b border-white/10">
-                                    <th className="text-left py-2 pr-4 text-white/80">№</th>
-                                    <th className="text-left py-2 pr-4 text-white/80">Стандарт</th>
-                                    <th className="text-right py-2 text-white/80">Хичээл заах цаг</th>
+                                    <th className="text-left py-2 pr-4 text-white/80">
+                                      {lang === 'en' ? 'No.' : '№'}
+                                    </th>
+                                    <th className="text-left py-2 pr-4 text-white/80">
+                                      {lang === 'en' ? 'Standard' : 'Стандарт'}
+                                    </th>
+                                    <th className="text-right py-2 text-white/80">
+                                      {lang === 'en' ? 'Hours' : 'Хичээл заах цаг'}
+                                    </th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -1027,7 +1359,7 @@ export default function TrainingPage() {
                                   ))}
                                   <tr className="border-t-2 border-white/20 font-medium">
                                     <td className="py-2 pr-4" colSpan={2}>
-                                      Нийт хичээллэх цаг
+                                      {lang === 'en' ? 'Total teaching hours' : 'Нийт хичээллэх цаг'}
                                     </td>
                                     <td className="py-2 text-right">102</td>
                                   </tr>
@@ -1087,17 +1419,27 @@ export default function TrainingPage() {
 
                         {financeDetailTab === 'tax' && (
                           <div className="space-y-4 pt-2">
-                            <h4 className="font-semibold text-white mb-2">2. ТАТВАРЫН БҮРТГЭЛ</h4>
+                            <h4 className="font-semibold text-white mb-2">
+                              {lang === 'en' ? '2. Tax accounting' : '2. ТАТВАРЫН БҮРТГЭЛ'}
+                            </h4>
                             <p className="leading-relaxed text-white/85 mb-3">
-                              Татварын бүртгэлийн онол, эрх зүйн үндэс, татварын төрөл, бүртгэл, тайлагналын онцлогийг иж бүрнээр судална.
+                              {lang === 'en'
+                                ? 'A comprehensive study of the theory and legal foundations of tax accounting, types of taxes, their accounting and reporting specifics.'
+                                : 'Татварын бүртгэлийн онол, эрх зүйн үндэс, татварын төрөл, бүртгэл, тайлагналын онцлогийг иж бүрнээр судална.'}
                             </p>
                             <div className="overflow-x-auto">
                               <table className="w-full text-sm border-collapse">
                                 <thead>
                                   <tr className="border-b border-white/10">
-                                    <th className="text-left py-2 pr-4 text-white/80">Д/Д</th>
-                                    <th className="text-left py-2 pr-4 text-white/80">Хичээлийн сэдэв</th>
-                                    <th className="text-right py-2 text-white/80">Хичээл заах цаг</th>
+                                    <th className="text-left py-2 pr-4 text-white/80">
+                                      {lang === 'en' ? 'No.' : 'Д/Д'}
+                                    </th>
+                                    <th className="text-left py-2 pr-4 text-white/80">
+                                      {lang === 'en' ? 'Topic' : 'Хичээлийн сэдэв'}
+                                    </th>
+                                    <th className="text-right py-2 text-white/80">
+                                      {lang === 'en' ? 'Hours' : 'Хичээл заах цаг'}
+                                    </th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -1213,7 +1555,7 @@ export default function TrainingPage() {
                                   </tr>
                                   <tr className="border-t-2 border-white/20 font-medium">
                                     <td className="py-2 pr-4" colSpan={2}>
-                                      Нийт
+                                      {lang === 'en' ? 'Total' : 'Нийт'}
                                     </td>
                                     <td className="py-2 text-right">72</td>
                                   </tr>
